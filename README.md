@@ -4,7 +4,7 @@ A simple Markdown to HTML converter written in Raku.
 
 ## Supported Features
 
-* **Blocks:** Headers (`#`), Paragraphs, Code Blocks (4 spaces), Blockquotes (`>`), Unordered Lists (`-`, `*`, `+`), Ordered Lists (`1.`), and Horizontal Rules (`---`).
+* **Blocks:** Headers (`#`), Paragraphs, Code Blocks (4 spaces, 3 backticks), Blockquotes (`>`), Unordered Lists (`-`, `*`, `+`), Ordered Lists (`1.`), and Horizontal Rules (`---`).
 * **Inline:** **Bold**, *Italics*, `Inline Code`, [Links](url), and ![Images](url).
 
 ## Usage
