@@ -1,0 +1,26 @@
+<h1>RMK</h1>
+
+<p>
+  A simple Markdown to HTML converter written in Raku. 
+</p>
+
+<h2>Supported Features</h2>
+
+<ul>
+  <li><strong>Blocks:</strong> Headers (<code>#</code>), Paragraphs, Code Blocks (4 spaces, <code>```</code>), Blockquotes (<code>&gt;</code>), Unordered Lists (<code>-</code>, <code>*</code>, <code>+</code>), Ordered Lists (<code>1.</code>), and Horizontal Rules (<code>---</code>).</li>
+  <li><strong>Inline:</strong> <strong>Bold</strong>, <em>Italics</em>, <code>Inline Code</code>, <a href="url">Links</a>, and <img src="url" alt="Images">.</li>
+</ul>
+
+<h2>Usage</h2>
+
+<p>
+  You can use RMK directly from the command line. Make sure the script is executable:
+</p>
+
+<pre><code class="language-bash">
+Usage:
+  ./rmk.raku [&lt;in&gt;] [--out[=Any]]
+  
+    [&lt;in&gt;]         Input file in markdown format [default: &lt;STDIN&gt;]
+    --out[=Any]    Output path in html format [default: &lt;STDOUT&gt;]
+</code></pre>

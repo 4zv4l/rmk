@@ -31,7 +31,7 @@ class MD-HTML {
             .subst(/ \[ (.*?) \] \( (.*?) \) /,       -> $/ { "<a href=\"$1\">{$0}</a>" },       :g) # Links
             .subst(/ \*\* (.*?) \*\* | __ (.*?) __ /, -> $/ { "<strong>{ $0 || $1 }</strong>" }, :g) # bold
             .subst(/ \* (.*?) \* | _ (.*?) _ /,       -> $/ { "<em>{ $0 || $1 }</em>" },         :g) # italic
-            .subst(/ \` (.*?) \` /,                   -> $/ { "<code>{$0}</code>" },             :g) # code
+            .subst(/ (\`+) \h* (.+?) \h* $0 /,        -> $/ { "<code>" ~ $1.&htmlscape ~ "</code>" }, :g) # code
     }
 }
 
