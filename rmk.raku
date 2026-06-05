@@ -42,5 +42,5 @@ sub MAIN(
 ) {
     my $text = $in ~~ IO::Handle ?? $in.slurp !! $in.IO.slurp;
     my $html = try TinyMD.parse($text, actions => MD-HTML.new).made orelse die "Failed to parse Markdown.";
-    $out ~~ IO::Handle ?? $out.say($html) !! $out.IO.spurt($html);
+    $out ~~ IO::Handle ?? $out.print($html) !! $out.IO.spurt($html);
 }
