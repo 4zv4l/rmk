@@ -27,10 +27,10 @@ class MD-HTML {
 
     sub htmlscape($str) { $str.trans([ '<'   , '>'   , '&' ] => [ '&lt;', '&gt;', '&amp;' ]) }
     sub inline($str) {
-        $str.subst(/ \! \[ (.*?) \] \( (.*?) \) /,    -> $/ { "<img src=\"$1\" alt=\"$0\">" },   :g) # Images
-            .subst(/ \[ (.*?) \] \( (.*?) \) /,       -> $/ { "<a href=\"$1\">{$0}</a>" },       :g) # Links
-            .subst(/ \*\* (.*?) \*\* | __ (.*?) __ /, -> $/ { "<strong>{ $0 || $1 }</strong>" }, :g) # bold
-            .subst(/ \* (.*?) \* | _ (.*?) _ /,       -> $/ { "<em>{ $0 || $1 }</em>" },         :g) # italic
+        $str.subst(/ \! \[ (.*?) \] \( (.*?) \) /,    -> $/ { "<img src=\"$1\" alt=\"$0\">" },        :g) # Images
+            .subst(/ \[ (.*?) \] \( (.*?) \) /,       -> $/ { "<a href=\"$1\">{$0}</a>" },            :g) # Links
+            .subst(/ \*\* (.*?) \*\* | __ (.*?) __ /, -> $/ { "<strong>{ $0 || $1 }</strong>" },      :g) # bold
+            .subst(/ \* (.*?) \* | _ (.*?) _ /,       -> $/ { "<em>{ $0 || $1 }</em>" },              :g) # italic
             .subst(/ (\`+) \h* (.+?) \h* $0 /,        -> $/ { "<code>" ~ $1.&htmlscape ~ "</code>" }, :g) # code
     }
 }
