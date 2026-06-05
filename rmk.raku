@@ -20,7 +20,7 @@ class MD-HTML {
     method block:sym<header>($/)    { make "<h{$<lvl>.chars}>" ~ $<text>.&inline ~ "</h{$<lvl>.chars}>" }
     method block:sym<fenced>($/)    { make "<pre><code" ~ ($<lang>.trim ?? " class=\"language-{$<lang>.trim}\"" !! "") ~ ">\n" ~ $<text>.&htmlscape ~ "</code></pre>" }
     method block:sym<codeblock>($/) { make "<pre><code>\n" ~ $<text>.join("\n").&htmlscape ~ "\n</code></pre>" }
-    method block:sym<quote>($/)     { make "<blockquote>\n" ~ $<text>.map({"  <p>" ~ &.inline ~ "</p>"}).join("\n") ~ "\n</blockquote>" }
+    method block:sym<quote>($/)     { make "<blockquote>\n" ~ $<text>.map({"  <p>" ~ .&inline ~ "</p>"}).join("\n") ~ "\n</blockquote>" }
     method block:sym<ul>($/)        { make "<ul>\n" ~ $<text>.map({"  <li>" ~ .&inline ~ "</li>"}).join("\n") ~ "\n</ul>" }
     method block:sym<ol>($/)        { make "<ol>\n" ~ $<text>.map({"  <li>" ~ .&inline ~ "</li>"}).join("\n") ~ "\n</ol>" }
     method block:sym<para>($/)      { make "<p>\n  " ~ $<text>.join("\n").&inline ~ "\n</p>" }
